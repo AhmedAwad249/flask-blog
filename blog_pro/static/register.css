@@ -1,0 +1,35 @@
+
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit {
+    width : 50%;
+    margin: 10px 22%;
+    padding: 10px 20px;
+    background-color: #005bbb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #004799;
+}
+
+
+label {
+    display: flex;
+    margin: 2px 10px;
+    font-size: small ;
+}
+
+
+
+

@@ -1,0 +1,54 @@
+# ============================================
+# Flask Blog — Python Dependencies
+# ============================================
+# Generated from venv. Install with: pip install -r requirements.txt
+
+# --- Core Framework ---
+Flask==3.1.1
+Werkzeug==3.1.3
+Jinja2==3.1.6
+click==8.2.1
+itsdangerous==2.2.0
+blinker==1.9.0
+MarkupSafe==3.0.2
+colorama==0.4.6
+
+# --- Database ---
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.41
+greenlet==3.2.2
+psycopg2-binary==2.9.12
+
+# --- Migrations ---
+Flask-Migrate==4.1.0
+alembic==1.16.2
+Mako==1.3.10
+
+# --- Authentication ---
+Flask-Bcrypt==1.0.1
+bcrypt==4.3.0
+Flask-Login==0.6.3
+
+# --- Forms ---
+Flask-WTF==1.2.2
+WTForms==3.2.1
+email_validator==2.2.0
+dnspython==2.7.0
+idna==3.10
+
+# --- Image Upload (Cloudinary) ---
+cloudinary==1.44.2
+pillow==12.2.0
+certifi==2026.4.22
+urllib3==2.7.0
+six==1.17.0
+
+# --- Environment & Config ---
+python-dotenv==1.2.2
+
+# --- Production Server ---
+gunicorn==26.0.0
+packaging==26.2
+
+# --- Other ---
+typing_extensions==4.13.2

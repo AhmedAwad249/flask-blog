@@ -1,0 +1,14 @@
+<div class="post-card" id="post-{{ post.id }}">
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.content }}</p>
+    {% if is_owner %}
+    <div class="actions">
+        <button class="btn edit" hx-get="{{ url_for('main.post.get_edit_post', post_id=post.id) }}"
+            hx-target="#post-{{ post.id }}" hx-swap="outerHTML">
+            Edit
+        </button>
+        <button class="btn delete" hx-delete="{{ url_for('post.delete_post', post_id=post.id) }}"
+            hx-target="#post-{{ post.id }}" hx-swap="outerHTML swap:0.3s">Delete</button>
+    </div>
+    {% endif %}
+</div>

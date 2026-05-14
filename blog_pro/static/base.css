@@ -1,0 +1,81 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* .circle-back-button {
+    width: 50px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    margin: 20px 0;
+    background-color: #343a40;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.circle-back-button:hover {
+    background-color: #495057;
+} */
+.flush-messages {
+    width : 90%;
+    padding: 5px 20px;
+    margin-bottom: 3px ;
+    background-color: #5cdca74a;
+    color: #202f29fd;
+    border: none;
+    border-radius: 6px;
+    border-color: rgba(0, 0, 0, 0.457);
+    border-width: 1px;
+    border-style:solid;
+    text-align: center;
+    font-size: small;
+    opacity: 75%;
+}
+#wrong-flush {
+    color: black;
+    background-color: #dc5c5c4a;
+
+}
+
+/* .post-card {
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.post-card h4 {
+    margin: 3px 0 10px;
+} */
+
+.post-card {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 1px;
+}
+
+.post-card h4 {
+    margin: 5px 0px -2px;
+}
+
+.htmx-swapping{
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+

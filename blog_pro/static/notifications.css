@@ -1,0 +1,177 @@
+/* 🔔 Dropdown */
+.notif-dropdown {
+  position: relative;
+}
+
+.notif-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.notif-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.notif-count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  width: 18px;
+  height: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.notif-list {
+  position: absolute;
+  right: 35px; /* 👈 أصبحت يسار الجرس */
+  top: 30px;
+  width: 330px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  padding: 10px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.notif-list.hidden {
+  display: none;
+}
+
+.notif-list.slide-in {
+  animation: slideInLeft 0.3s ease;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.clear-btn {
+  border: none;
+  background: #eee;
+  border-radius: 6px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.clear-btn:hover {
+  background: #ddd;
+}
+
+.notif-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notif-item {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  padding: 8px;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  animation: fadeIn 0.3s ease;
+}
+
+.notif-item:hover {
+  background: #f0f8ff;
+  transform: translateX(5px);
+}
+
+.notif-left {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.notif-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-msg {
+  font-size: 13px;
+  color: #333;
+}
+
+.notif-time {
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+.no-notifs {
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* 🔹 Toast Notifications */
+.live-notif-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2000;
+}
+
+.notif-toast {
+  background: #fff;
+  border-left: 5px solid #007bff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  padding: 12px 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  animation: slideIn 0.4s ease;
+  transition: 0.4s;
+  min-width: 260px;
+}
+
+.notif-toast.fade-out {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.notif-comment { border-left-color: #00b894; }
+.notif-system { border-left-color: #6c5ce7; }
+.notif-post { border-left-color: #fdcb6e; }

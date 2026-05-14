@@ -1,0 +1,14 @@
+<h2>All Notifications</h2>
+<div class="notif-page">
+    {% for n in notifications %}
+        <div class="notif-item {{ n.type }}">
+            <div class="icon">
+                {% if n.type == 'comment' %}💬{% elif n.type == 'newpost' %}📝{% elif n.type == 'system' %}⚙️{% else %}🔔{% endif %}
+            </div>
+            <div class="info">
+                <div>{{ n.message }}</div>
+                <div class="time">{{ n.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

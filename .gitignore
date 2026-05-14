@@ -1,0 +1,45 @@
+# ============================================
+# Python / Flask .gitignore
+# ============================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+
+# --- Virtual Environment ---
+.venv/
+venv/
+env/
+
+# --- Environment / Secrets ---
+.env
+*.env.local
+
+# --- Flask Instance (SQLite database lives here) ---
+instance/
+
+# --- Local image backups (images are on Cloudinary now) ---
+blog_pro/static/post-img/
+blog_pro/profile/static/profile-img/*
+!blog_pro/profile/static/profile-img/default.JPG
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Misc ---
+saves/
+*.code-workspace

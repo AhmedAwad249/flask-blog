@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% set css_file = 'register.css' %}
+
+{% block content %}
+    <form method="post" action="">
+        {{ form.hidden_tag() }}
+        {{ form.username.label() }}
+        {{ form.username() }}
+
+        {{ form.email.label() }}
+        {{ form.email() }}
+        
+
+        {{ form.password.label() }}
+
+        {% if form.confirm_password.errors %}
+            {{ form.password(style="border-color: red;") }}
+        {% else %}
+            {{ form.password() }}
+        {% endif %}
+    
+
+        {{ form.confirm_password.label() }}
+        {% if form.confirm_password.errors %}
+            {{ form.confirm_password(style="border-color: red;") }}
+        {% else %}
+            {{ form.confirm_password() }}
+        {% endif %}
+        
+
+        {{ form.submit() }}
+    </form>
+{% endblock content %}

@@ -1,42 +1,33 @@
-"""
-Configuration classes for the Flask Blog application.
-
-Usage:
-    - DevelopmentConfig  → used by run.py (local development)
-    - ProductionConfig   → used by wsgi.py and deployment platforms
-    - TestingConfig      → used for automated tests (future)
-
-All sensitive values are loaded from environment variables.
-A .env file is supported for local development via python-dotenv.
-"""
-
 import os
 from dotenv import load_dotenv
 
-# Load .env file (only affects local dev — on platforms like Render
-# the env vars are set directly in the dashboard)
 load_dotenv()
 
 
 class Config:
-    """Base configuration shared by all environments."""
 
-    # --- Flask Core ---
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-key-CHANGE-ME-in-production')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///site.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # --- Cloudinary ---
     CLOUDINARY_CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
     CLOUDINARY_API_KEY = os.environ.get('CLOUDINARY_API_KEY')
     CLOUDINARY_API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
 
-    # --- Security ---
+
+    _db_url = os.environ.get('DATABASE_URL', '')
+    if _db_url.startswith('postgresql') or _db_url.startswith('postgres://'):
+        SQLALCHEMY_ENGINE_OPTIONS = {
+            'pool_pre_ping': True,      # Test connection before use (avoids stale connections)
+            'pool_recycle': 300,        # Recycle connections every 5 minutes
+            'pool_size': 5,             # Max persistent connections
+            'max_overflow': 10,         # Extra connections allowed under load
+        }
+
     SESSION_COOKIE_HTTPONLY = True       # JS cannot read session cookie
     SESSION_COOKIE_SAMESITE = 'Lax'     # Prevent CSRF via cross-site requests
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB max upload size
 
-    # --- Upload validation ---
     ALLOWED_IMAGE_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif', 'webp'}
 
 

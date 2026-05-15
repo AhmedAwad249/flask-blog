@@ -1,9 +1,0 @@
-<form id="post-form" class="post-form" enctype="multipart/form-data" hx-post="{{ url_for('main.submit_new_post') }}" hx-target="#new_posts-container" hx-swap="afterbegin swap:0.2s">
-    <label for="title">Title</label>
-    <input id="title_field" name="title_field" type="text" value="">
-    
-    <label for="post_field">Post :</label>
-    <textarea rows="4" name="post_field" type="text" value="" ></textarea>
-    <input type="file" name="images-field" id="images-field" multiple>
-    <button type="submit" class="btn submit" >Submit</button>
-</form>

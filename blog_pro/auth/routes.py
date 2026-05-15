@@ -4,7 +4,7 @@ from blog_pro import bcrypt, db
 from blog_pro.models import User
 from .forms import RegistrationForm ,LoginForm
 
-auth_bp = Blueprint("auth",__name__,url_prefix="/auth",template_folder='Templates')
+auth_bp = Blueprint("auth",__name__,url_prefix="/auth",template_folder='templates')
 
 
 

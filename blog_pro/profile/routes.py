@@ -5,7 +5,7 @@ from blog_pro.models import User, Post
 from blog_pro.cloudinary_utils import upload_image, delete_image
 from .forms import UpdateAccount
 
-profile = Blueprint("profile",__name__,url_prefix="/profile",template_folder='Templates',static_folder="static")
+profile = Blueprint("profile",__name__,url_prefix="/profile",template_folder='templates',static_folder="static")
 
 @profile.route("/")
 @login_required

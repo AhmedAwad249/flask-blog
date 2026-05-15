@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% set static_file = 'profile.static' %}
+{% set css_file = 'update_profile.css' %}
+
+{% block content %}
+
+<div class="header">
+    <a href="{{ url_for('main.index') }}"><button class="btn logout">Home</button></a>
+    <a href="{{ url_for('profile.account',username=current_user.username) }}"><button
+            class="btn account">Account</button></a>
+</div>
+
+<div class="profile">
+    <img src="{{ image_file }}" id="profile-preview" class="avatar">
+    <div>
+        <h2>{{ current_user.username }}</h2>
+        <p>Email: {{ current_user.email }}</p>
+    </div>
+</div>
+
+<form method="post" action="" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    {% if form.file_field.errors %}
+    {{ form.file_field(style="border-color: red;") }}
+    {% else %}
+    {{ form.file_field(id="file-input") }}
+    {% endif %}
+
+
+    {{ form.username.label() }}
+    {% if form.username.errors %}
+    {{ form.username(style="border-color: red;") }}
+    {% else %}
+    {{ form.username() }}
+    {% endif %}
+
+    {{ form.email.label() }}
+    {% if form.email.errors %}
+    {{ form.email(style="border-color: red;") }}
+    {% else %}
+    {{ form.email() }}
+    {% endif %}
+
+    {{ form.submit() }}
+</form>
+<script>
+    document.getElementById('file-input').addEventListener('change', function (event) {
+        const input = event.target;
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const preview = document.getElementById('profile-preview');
+
+                preview.src = e.target.result;
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+</script>
+{% endblock content %}

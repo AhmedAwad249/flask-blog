@@ -3,7 +3,7 @@ from flask_login import current_user , login_required
 from blog_pro import db
 from blog_pro.models import Post
 
-post_bp = Blueprint("post",__name__,url_prefix="/post",template_folder='Templates')
+post_bp = Blueprint("post",__name__,url_prefix="/post",template_folder='templates')
 
 def add_post(post:Post) :
     db.session.add(post)
